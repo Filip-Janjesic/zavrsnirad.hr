@@ -1,0 +1,26 @@
+
+<a href="novi" class="button success expanded">
+    Ddaj novog operatera</a>
+
+<table>
+    <thead>
+        <tr>
+            <th>Ime i prezime</th>
+            <th>Email</th>
+            <th>Uloga</th>
+            <th>Akcija</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach($podaci as $p):?>
+            <tr>
+                <td><?=$p->ime?> <?=$p->prezime?></td>
+                <td><?=$p->email?></td>
+                <td><?=$p->uloga?></td>
+                <td>
+                    <a href="promjeni?id=<?=$p->sifra?>">Promjeni</a>
+                </td>
+            </tr>
+        <?php endforeach;?>
+    </tbody>
+</table>
