@@ -1,6 +1,11 @@
 <?php
 
 return [
-    'url'=>'http://webshop.hr/',
-    'nazivApp'=>'Webshop - završni rad'
+    'url'=>'http://app.hr/',
+    'nazivApp'=>'Edunova APP',
+    'baza'=>[
+        'dsn'=>'mysql:host=localhost;dbname=edunovapp26;charset=utf8mb4',
+        'user'=>'root',
+        'password'=>''
+    ]
 ];
