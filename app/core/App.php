@@ -19,12 +19,25 @@ class App
         }else{
             $metoda=$djelovi[1];
         }
+
+        $parametar='';
+        if(!isset($djelovi[2]) || $djelovi[2]==='' ){
+            $parametar='';
+        }else{
+            $parametar=$djelovi[2];
+        }
+
         if(!(class_exists($controller) && method_exists($controller,$metoda))){
             echo 'Ne postoji ' . $controller . '-&gt;' . $metoda;
             return;
         }
         $instanca = new $controller();
-        $instanca->$metoda();
+        if(strlen($parametar)>0){
+            $instanca->$metoda($parametar);
+        }else{
+            $instanca->$metoda();
+        }
+        
     }
 
     public static function config($kljuc)
@@ -59,6 +72,11 @@ class App
     public static function admin()
     {
         return $_SESSION['auth']->uloga==='admin' ;
+    }
+
+    public static function dev()
+    {
+        return App::config('dev') ;
     }
 
 }

@@ -1,0 +1,47 @@
+<form action="" method="post">
+    <fieldset>
+        <legend>Unos novog smjera</legend>
+
+        <label for="naziv">Naziv</label>
+        <input type="text" id="naziv" name="naziv"
+        value="<?=$e->naziv?>">
+
+        <label for="cijena">Cijena</label>
+        <input type="text" id="cijena" name="cijena"
+        value="<?=$e->cijena?>">
+
+        <label for="upisnina">Upisnina</label>
+        <input type="text" id="upisnina" name="upisnina"
+        value="<?=$e->upisnina?>">
+
+        <label for="trajanje">Trajanje</label>
+        <input type="text" id="trajanje" name="trajanje"
+        value="<?=$e->trajanje?>">
+
+        Certificiran<br>
+        <input type="radio" name="certificiran" id="da" value="true"
+        <?php if($e->certificiran) echo 'checked="checked"'; ?>>
+        <label for="da">DA</label>
+        
+        <input type="radio" name="certificiran" id="ne" value="false"
+        <?php if(!$e->certificiran) echo 'checked="checked"'; ?>>
+        <label for="ne">NE</label>
+
+        <hr>
+        <?=$poruka?>
+
+        <div class="grid-x grid-padding-x">
+            <div class="large-6 cell">
+                <a href="<?=App::config('url')?>smjer/index"
+                class="button alert expanded">Odustani</a>
+            </div>
+            <div class="large-6 cell">
+                <input type="submit" class="button success expanded" 
+                value="Dodaj">
+            </div>
+        </div>
+        
+        
+
+    </fieldset>
+</form>
