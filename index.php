@@ -1,40 +1,36 @@
-<?php
-
-// ova datoteka će definirati temeljne preduvjete
-// i napraviti autoloading
+<?php 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 session_start();
 
-define('BP',__DIR__ . DIRECTORY_SEPARATOR);
-define('BP_APP', BP . 'app' . DIRECTORY_SEPARATOR);
+define('PATH', __DIR__ . DIRECTORY_SEPARATOR);
+define('APP_PATH', __DIR__. DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR);
+define('IMAGE_PATH', __DIR__. DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'images' . DIRECTORY_SEPARATOR);
+define('PDF_PATH', __DIR__ . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'pdf' . DIRECTORY_SEPARATOR);
 
-$zaAutoload=[
-    BP_APP . 'controller',
-    BP_APP . 'core',
-    BP_APP . 'model'
-]; // view ne ide u autoload jer su u njemu phtml datoteke
+$path= implode(PATH_SEPARATOR,
+[
+    APP_PATH . 'models',
+    APP_PATH . 'controller',
+    APP_PATH . 'core',
+    APP_PATH . 'helpers'
+]);
+
+set_include_path($path);
 
 
-$putanje = implode(PATH_SEPARATOR,$zaAutoload);
+spl_autoload_register(function($class){
 
-set_include_path($putanje);
-
-spl_autoload_register(function($klasa){
-    //echo 'u spl_autoload, tražim klasu ' . $klasa . '<br>';
-    $putanje = explode(PATH_SEPARATOR,get_include_path());
-    foreach($putanje as $putanja){
-        //echo $putanja . '<br>';
-        $datoteka = $putanja . DIRECTORY_SEPARATOR .
-                        $klasa . '.php';
-        //echo $datoteka, '<br>';
-        if(file_exists($datoteka)){
-            require_once $datoteka;
+    $path = explode(PATH_SEPARATOR, get_include_path());
+    foreach ($path as $key) {
+        if(file_exists($key. DIRECTORY_SEPARATOR. $class . '.php')){
+            include $key. DIRECTORY_SEPARATOR. $class . '.php';
             break;
         }
     }
+
 });
 
 App::start();
-
-//$o = new Osoba();
-//echo $o->getIme();
