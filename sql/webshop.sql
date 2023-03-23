@@ -1,8 +1,10 @@
 # c:\xampp\mysql\bin\mysql -uroot --default_character_set=utf8 <C:\Users\Filip\Documents\Edunova-2022\Zavrsni_rad_PP26\sql\webshop.sql
-# c:\xampp\mysql\bin\mysql -uroot --default_character_set=utf8 <C:\Users\Polaznik\Documents\Zavrsni_rad_PP26\sql\webshop.sql
+# c:\xampp\mysql\bin\mysql -uroot --default_character_set=utf8 <C:\Users\Filip\Documents\Edunova-2022\webshop.hr\sql\webshop.sql
 drop database if exists webshop;
 create database webshop default character set utf8mb4;
 use webshop;
+
+SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
 
 create table proizvod (
 
