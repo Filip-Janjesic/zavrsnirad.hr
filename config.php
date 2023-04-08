@@ -5,7 +5,7 @@ if ($_SERVER['SERVER_ADDR'] === '127.0.0.1') {
     $dev = true;
     $database = [
         'server' => 'localhost',
-        'database' => 'edunovapp24',
+        'database' => 'zavrsnirad',
         'user' => 'root',
         'password' => ''
     ];
@@ -13,16 +13,16 @@ if ($_SERVER['SERVER_ADDR'] === '127.0.0.1') {
     $url = 'https://mamik-dj.shop/';
     $dev = false;
     $database = [
-        'server' => '157.20.115.5',
-        'database' => 'zavrsni',
-        'user' => 'marija',
-        'password' => 'xC5VCU&Kt=:3}8Af'
+        'server' => 'localhost',
+        'database' => 'jupiter_zavrsnirad',
+        'user' => 'jupiter_filip',
+        'password' => '$2y$10$IdhJ/FE88d.4WCKGtI2L0exu67zUKigMsUD9lzauYblv7dNWF9gdO'
     ];
 }
 
 return [
     'dev' => $dev,
     'url' => $url,
-    'appTitle' => 'Pizzeria',
+    'appTitle' => 'Zavrsni rad',
     'database' => $database
 ];
