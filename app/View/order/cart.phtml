@@ -1,0 +1,63 @@
+<h3 class="text-center mt-2">
+    <span class="bg-light p-2">
+        Cart
+    </span>
+</h3>
+
+<?php if ((count($orderProducts)) === 0): ?>
+    <div class="text-center">
+        <h6 class="text-danger">
+            There are no items in your cart. Start researching our restauraunt!
+        </h6>
+    </div>
+<?php else: ?>
+    <div class="col-md-5" style="margin: auto">
+        <h4>
+            Total items
+            <span class="badge bg-primary rounded-pill">
+                <?= $totalItems ?>
+            </span>
+        </h4>
+        <?php foreach ($orderProducts as $orderProduct): ?>
+            <ul class="list-group mb-3">
+                <li class="list-group-item d-flex justify-content-between lh-sm">
+                    <div>
+                        <h6 class="my-0">
+                            Product name
+                        </h6>
+                        <small class="text-muted">
+                            <?= $orderProduct->product_name ?>
+                            <i>
+                                <?= $orderProduct->order_product_amount ?> pcs
+                            </i>
+                        </small>
+                    </div>
+                    <span class="text-muted">
+                        <?= $orderProduct->product_price ?> kn
+                    </span>
+                </li>
+                <div class="text-center">
+                    <a href="/order/delete?id=<?= $orderProduct->order_product_id ?>"
+                       class="btn btn-danger" style="width: 20%">
+                        Delete
+                    </a>
+                </div>
+            </ul>
+        <?php endforeach ?>
+
+        <hr>
+        <li class="list-group-item d-flex justify-content-between">
+            <h5 class="text-right">
+                Total price [kn]
+            </h5>
+            <strong> <?= $totalPrice ?> kn </strong>
+        </li>
+        <hr>
+
+        <div class="text-center mt-2">
+            <a href="/order/finish?id=<?= $orderId ?>" class="btn btn-primary">
+                Finish order
+            </a>
+        </div>
+    </div>
+<?php endif; ?>
