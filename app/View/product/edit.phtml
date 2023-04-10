@@ -1,0 +1,52 @@
+<h3 class="text-center mt-2">
+    <span class="bg-light p-2">
+        Product
+        <strong>
+            <?= $product->name ?>
+        </strong>
+    </span>
+</h3>
+
+<div class="m-auto" style="width: 30%;" >
+    <form action="/product/editSubmit" method="POST">
+        <input type="hidden" id="id" name="id" value="<?= $product->id ?>">
+        <div class="mb-3">
+            <label for="name" class="form-label"> Name </label>
+            <input type="text" name="name" class="form-control"
+                   value="<?= $product->name ?>" id="name" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="description" class="form-label"> Description </label>
+            <input type="text" name="description" class="form-control"
+                   value="<?= $product->description ?>" id="description" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="price" class="form-label"> Price [kn] </label>
+            <input type="number" name="price" class="form-control"
+                   value="<?= $product->price ?>" id="price" min="1" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="product_type" class="form-label"> Product type </label>
+            <select id="product_type" name="product_type" class="form-select" required>
+                <?php foreach ($productTypes as $productType): ?>
+                    <option
+                        <?php if($productType['id'] === $product->type): ?>
+                            selected="selected"
+                        <?php endif; ?>
+                            value="<?= $productType['name'] ?>">
+                        <?= $productType['name'] ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+
+        <div class="text-center mt-3">
+            <button type="submit" name="submit_edit_product" class="btn btn-success">
+                Edit product
+            </button>
+        </div>
+    </form>
+</div>
