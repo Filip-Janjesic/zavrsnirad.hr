@@ -1,0 +1,32 @@
+<?php if (count($products) === 0): ?>
+    <h6 class="text-center mt-3 text-danger">
+        There are no product entries in database. Check back later!
+    </h6>
+<?php else: ?>
+    <div class="row text-center mt-2">
+        <?php foreach ($products as $product): ?>
+            <div class="col-sm-3 mt-2">
+                <img src="https://via.placeholder.com/300"
+                     alt="image_<?= $product['name'] ?>">
+                <h5 class="mt-2">
+                    <?= $product['name'] ?>
+                </h5>
+                <p class="card-text">
+                    <?= $product['description'] ?>
+                </p>
+                <form action="/order/add" method="POST">
+                    <input type="hidden" name="product_id" value="<?= $product['id'] ?>">
+                    <?php if(isset($_SESSION['user'])): ?>
+                        <label for="amount" class="form-label"> Količina </label>
+                        <input type="number" name="amount" class="form-control" id="amount" min="1"
+                               value="1" required style="width: 20%; margin: auto;">
+                        <button type="submit" name="submit_product" class="btn btn-warning mt-2">
+                            Add to cart
+                        </button>
+                    <?php endif; ?>
+                </form>
+            </div>
+        <?php endforeach; ?>
+    </div>
+<?php endif; ?>
+
