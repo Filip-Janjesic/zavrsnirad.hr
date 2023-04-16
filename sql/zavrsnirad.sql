@@ -109,7 +109,7 @@ INSERT INTO `product_type` (`id`, `name`) VALUES
 --
 
 CREATE TABLE `user` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL primary key auto_increment,
   `name` varchar(255) NOT NULL,
   `surname` varchar(255) NOT NULL,
   `address` varchar(255) NOT NULL,
@@ -118,6 +118,12 @@ CREATE TABLE `user` (
   `password` varchar(255) NOT NULL,
   `role` enum('admin','customer') CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+insert into 'user' ('name', 'surname', 'address', 'telephone', 'email', 'password' , 'role') VALUES
+('Filip', 'Janješić', 'address', 'telephone', 'email', 'password' , 'role' ),
+('name', 'surname', 'address', 'telephone', 'email', 'password' , 'role'),
+('name', 'surname', 'address', 'telephone', 'email', 'password' , 'role' );
+
 
 --
 -- Indexes for dumped tables
