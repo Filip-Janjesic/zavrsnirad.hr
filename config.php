@@ -10,7 +10,7 @@ if ($_SERVER['SERVER_ADDR'] === '127.0.0.1') {
         'password' => ''
     ];
 } else {
-    $url = 'https://mamik-dj.shop/';
+    $url = 'https://polaznik40.edunova.hr/';
     $dev = false;
     $database = [
         'server' => 'localhost',
