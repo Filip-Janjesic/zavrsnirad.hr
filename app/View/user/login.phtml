@@ -1,0 +1,41 @@
+<h3 class="text-center mt-2">
+    <span class="bg-light p-2">
+        Login
+    </span>
+</h3>
+
+<?php if (isset($_SESSION['error_message'])): ?>
+    <h6 class="text-center mt-3">
+        Error message:
+        <span class="text-danger">
+            <?php
+                echo $_SESSION['error_message'];
+                session_unset();
+            ?>
+        </span>
+    </h6>
+<?php endif; ?>
+
+<div class="m-auto" style="width: 30%;" >
+    <form action="/user/authorize" method="POST">
+        <div class="mb-3">
+            <label for="email" class="form-label"> Email </label>
+            <input type="email" name="email" class="form-control" id="email" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="password" class="form-label"> Password </label>
+            <input type="password" name="password" class="form-control" id="password" required>
+        </div>
+
+        <div class="text-center">
+            <button type="submit" name="submit_login" class="btn btn-primary"> Login </button>
+        </div>
+    </form>
+
+    <p class="text-center mt-3">
+        Don't have an account? Register <a href="/register">here</a>.
+    </p>
+</div>
+
+
