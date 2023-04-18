@@ -4,6 +4,7 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+01:00";
 
+drop database if exists zavrsnirad;
 create database zavrsnirad;
 use zavrsnirad;
 
@@ -111,7 +112,7 @@ INSERT INTO `product_type` (`id`, `name`) VALUES
 --
 
 CREATE TABLE `user` (
-  `id` int(11) NOT NULL primary key auto_increment,
+  `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `surname` varchar(255) NOT NULL,
   `address` varchar(255) NOT NULL,
@@ -121,10 +122,10 @@ CREATE TABLE `user` (
   `role` enum('admin','customer') CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-insert into 'user' ('name', 'surname', 'address', 'telephone', 'email', 'password', 'role') VALUES
-('Filip', 'Janješić', 'Višnjevac', 'telephone', 'admin@gmail.com', 'admin', 'admin' ),
-('Name1', 'Surname1', 'Address1', 'Telephone1', 'customer1@gmail.com', 'customer1', 'customer'),
-('Name2', 'Surname2', 'Address2', 'Telephone2', 'customer2@gmail.com', 'customer2', 'customer' );
+insert into `user` (`id`,`name`, `surname`, `address`, `telephone`, `email`, `password`, `role`) VALUES
+(1,'Filip', 'Janješić', 'Višnjevac', 'telephone', 'admin@gmail.com', 'admin', 'admin' ),
+(2,'Name1', 'Surname1', 'Address1', 'Telephone1', 'customer1@gmail.com', 'customer1', 'customer'),
+(3,'Name2', 'Surname2', 'Address2', 'Telephone2', 'customer2@gmail.com', 'customer2', 'customer' );
 
 
 --
