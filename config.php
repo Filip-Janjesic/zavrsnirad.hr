@@ -16,7 +16,7 @@ if ($_SERVER['SERVER_ADDR'] === '127.0.0.1') {
         'server' => 'localhost',
         'database' => 'jupiter_zavrsnirad',
         'user' => 'jupiter_filip',
-        'password' => '$2y$10$IdhJ/FE88d.4WCKGtI2L0exu67zUKigMsUD9lzauYblv7dNWF9gdO'
+        'password' => 'Jupiter54316'
     ];
 }
 
