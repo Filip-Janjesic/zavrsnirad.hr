@@ -4,7 +4,7 @@ namespace Controller;
 
 use Model\Product;
 use Model\ProductType;
-use storage\ProductStorage;
+use Storage\ProductStorage;
 use Storage\ProductTypeStorage;
 
 class ProductController extends BaseController
