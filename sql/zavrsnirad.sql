@@ -123,9 +123,9 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 insert into `user` (`id`, `name`, `surname`, `address`, `telephone`, `email`, `password`, `role`) VALUES
-(1,'Filip', 'Janješić', 'Višnjevac', 'telephone', 'admin@gmail.com', '$2y$10$RQ1liC.j.NocbHrSsQvl8.3pimo6B3dzwacKDTl.dj/GYUZ1J3MwW', 'admin' ),
-(2,'Name1', 'Surname1', 'Address1', 'Telephone1', 'customer1@gmail.com', 'customer1', 'customer'),
-(3,'Name2', 'Surname2', 'Address2', 'Telephone2', 'customer2@gmail.com', 'customer2', 'customer' );
+(1,'Filip', 'Janješić', 'Višnjevac', '0991234567', 'admin@edunova.hr', '$2y$10$RQ1liC.j.NocbHrSsQvl8.3pimo6B3dzwacKDTl.dj/GYUZ1J3MwW', 'admin' ),
+(2,'Name1', 'Surname1', 'Address1', '0991234567', 'customer1@edunova.hr', '$2y$10$l/.4kPXsMcp40Vdo57GiEu4r34xvvlMlpylES5ql.yuh95Pn2qkN.', 'customer'),
+(3,'Name2', 'Surname2', 'Address2', '0991234567', 'customer2@edunova.hr', '$2y$10$Uz2HuxK7pVkjBMeinCp2Y.h.vLs6VlnxjROjcMwftxwXXe3OO0TQu', 'customer' );
 
 
 --
