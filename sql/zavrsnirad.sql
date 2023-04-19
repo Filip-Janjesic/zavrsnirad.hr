@@ -122,8 +122,8 @@ CREATE TABLE `user` (
   `role` enum('admin','customer') CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-insert into `user` (`id`,`name`, `surname`, `address`, `telephone`, `email`, `password`, `role`) VALUES
-(1,'Filip', 'Janješić', 'Višnjevac', 'telephone', 'admin@gmail.com', 'admin', 'admin' ),
+insert into `user` (`id`, `name`, `surname`, `address`, `telephone`, `email`, `password`, `role`) VALUES
+(1,'Filip', 'Janješić', 'Višnjevac', 'telephone', 'admin@gmail.com', '$2y$10$RQ1liC.j.NocbHrSsQvl8.3pimo6B3dzwacKDTl.dj/GYUZ1J3MwW', 'admin' ),
 (2,'Name1', 'Surname1', 'Address1', 'Telephone1', 'customer1@gmail.com', 'customer1', 'customer'),
 (3,'Name2', 'Surname2', 'Address2', 'Telephone2', 'customer2@gmail.com', 'customer2', 'customer' );
 
